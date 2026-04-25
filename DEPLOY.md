@@ -52,7 +52,9 @@ Actions -> Build KernelSU module -> Run workflow
 
 The finished `hideSceneport_module.zip` appears as a workflow artifact.
 To publish a Release from Actions, enable `Create a GitHub Release` when running
-the workflow, or push a tag like `v1.0-device-name`.
+the workflow, or push a tag like `v1.0-device-name`. The workflow downloads the
+official prebuilt `bpftool` release, so it does not depend on the runner kernel's
+`linux-tools-*` packages.
 
 If users do not want to commit `vmlinux.btf`, they can generate and commit
 `src/vmlinux.h` instead. The workflow accepts either file.
